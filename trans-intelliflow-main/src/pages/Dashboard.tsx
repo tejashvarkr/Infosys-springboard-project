@@ -26,7 +26,7 @@ import { Link } from "react-router-dom";
 const Dashboard = () => {
   const [timeRange, setTimeRange] = useState("all");
   const [transactionType, setTransactionType] = useState("all");
-  const [location, setLocation] = useState("all");
+  
   const [transactions, setTransactions] = useState<Transaction[]>(mockTransactions);
   const [loading, setLoading] = useState(true);
 
@@ -67,12 +67,10 @@ const Dashboard = () => {
       filtered = filtered.filter((t) => t.type === transactionType);
     }
 
-    if (location !== "all") {
-      filtered = filtered.filter((t) => t.location === location);
-    }
+  
 
     return filtered;
-  }, [transactions, timeRange, transactionType, location]);
+  }, [transactions, timeRange, transactionType]);
 
   const stats = useMemo(() => {
     const total = filteredTransactions.length;
@@ -180,10 +178,9 @@ const Dashboard = () => {
         <FilterBar
           timeRange={timeRange}
           transactionType={transactionType}
-          location={location}
           onTimeRangeChange={setTimeRange}
           onTransactionTypeChange={setTransactionType}
-          onLocationChange={setLocation}
+       
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -194,13 +191,7 @@ const Dashboard = () => {
             icon={DollarSign}
             variant="default"
           />
-          <MetricCard
-            title="Total Customers"
-            value={stats.uniqueCustomers.toLocaleString()}
-            subtitle="Active accounts"
-            icon={Users}
-            variant="default"
-          />
+         
           <MetricCard
             title="Fraud Cases"
             value={stats.fraudCount.toLocaleString()}
