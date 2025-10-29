@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
-  DollarSign,
+  IndianRupee,
   Users,
   AlertTriangle,
   TrendingDown,
@@ -188,7 +188,7 @@ const Dashboard = () => {
             title="Total Transactions"
             value={stats.total.toLocaleString()}
             subtitle={`${stats.uniqueCustomers} unique customers`}
-            icon={DollarSign}
+            icon={IndianRupee}
             variant="default"
           />
          
@@ -202,7 +202,7 @@ const Dashboard = () => {
           <MetricCard
             title="Fraud Detection Rate"
             value={`${stats.fraudRate.toFixed(2)}%`}
-            subtitle="Model accuracy: 95.34%"
+            subtitle="Model accuracy: 90%"
             icon={TrendingDown}
             variant="warning"
           />
@@ -211,20 +211,20 @@ const Dashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <MetricCard
             title="Average Transaction"
-            value={`₹${Math.round(stats.avgAmount).toLocaleString()}`}
-            icon={DollarSign}
+            value={`$${Math.round(stats.avgAmount).toLocaleString()}`}
+            icon={IndianRupee}
             variant="default"
           />
           <MetricCard
             title="Maximum Transaction"
-            value={`₹${Math.round(stats.maxAmount).toLocaleString()}`}
-            icon={DollarSign}
+            value={`$${Math.round(stats.maxAmount).toLocaleString()}`}
+            icon={IndianRupee}
             variant="success"
           />
           <MetricCard
             title="Minimum Transaction"
-            value={`₹${Math.round(stats.minAmount).toLocaleString()}`}
-            icon={DollarSign}
+            value={`$${Math.round(stats.minAmount).toLocaleString()}`}
+            icon={IndianRupee}
             variant="default"
           />
         </div>
