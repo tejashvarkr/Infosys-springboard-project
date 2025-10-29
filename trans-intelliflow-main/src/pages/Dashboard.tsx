@@ -67,7 +67,7 @@ const Dashboard = () => {
       filtered = filtered.filter((t) => t.type === transactionType);
     }
 
-  
+    
 
     return filtered;
   }, [transactions, timeRange, transactionType]);
@@ -178,6 +178,7 @@ const Dashboard = () => {
         <FilterBar
           timeRange={timeRange}
           transactionType={transactionType}
+         
           onTimeRangeChange={setTimeRange}
           onTransactionTypeChange={setTransactionType}
        
@@ -187,11 +188,17 @@ const Dashboard = () => {
           <MetricCard
             title="Total Transactions"
             value={stats.total.toLocaleString()}
-            subtitle={`${stats.uniqueCustomers} unique customers`}
+            subtitle="Processed transactions"
             icon={IndianRupee}
             variant="default"
           />
-         
+          <MetricCard
+            title="Total Customers"
+            value="5000"
+            subtitle="Active accounts"
+            icon={Users}
+            variant="default"
+          />
           <MetricCard
             title="Fraud Cases"
             value={stats.fraudCount.toLocaleString()}
@@ -200,9 +207,9 @@ const Dashboard = () => {
             variant="danger"
           />
           <MetricCard
-            title="Fraud Detection Rate"
+            title="Fraud Detection"
             value={`${stats.fraudRate.toFixed(2)}%`}
-            subtitle="Model accuracy: 90%"
+            // subtitle="Model accuracy: 90%"
             icon={TrendingDown}
             variant="warning"
           />
@@ -211,19 +218,19 @@ const Dashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <MetricCard
             title="Average Transaction"
-            value={`$${Math.round(stats.avgAmount).toLocaleString()}`}
+            value={`₹${Math.round(stats.avgAmount).toLocaleString()}`}
             icon={IndianRupee}
             variant="default"
           />
           <MetricCard
             title="Maximum Transaction"
-            value={`$${Math.round(stats.maxAmount).toLocaleString()}`}
+            value={`₹${Math.round(stats.maxAmount).toLocaleString()}`}
             icon={IndianRupee}
             variant="success"
           />
           <MetricCard
             title="Minimum Transaction"
-            value={`$${Math.round(stats.minAmount).toLocaleString()}`}
+            value={`₹${Math.round(stats.minAmount).toLocaleString()}`}
             icon={IndianRupee}
             variant="default"
           />
@@ -253,7 +260,7 @@ const Dashboard = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="text-center text-sm text-muted-foreground">
             <p className="font-medium">Developed by Team Predictive Intelligence</p>
-            <p className="mt-1">BFSI Fraud Detection System — Milestone 1: Data Visualization</p>
+            <p className="mt-1">BFSI Fraud Detection System</p>
           </div>
         </div>
       </footer>
