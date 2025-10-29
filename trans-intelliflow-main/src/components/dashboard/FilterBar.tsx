@@ -11,19 +11,19 @@ import { Filter } from "lucide-react";
 interface FilterBarProps {
   timeRange: string;
   transactionType: string;
-  location: string;
+ 
   onTimeRangeChange: (value: string) => void;
   onTransactionTypeChange: (value: string) => void;
-  onLocationChange: (value: string) => void;
+ 
 }
 
 export const FilterBar = ({
   timeRange,
   transactionType,
-  location,
+ 
   onTimeRangeChange,
   onTransactionTypeChange,
-  onLocationChange,
+
 }: FilterBarProps) => {
   return (
     <Card className="p-4">
@@ -53,29 +53,14 @@ export const FilterBar = ({
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all">All Types</SelectItem>
-            <SelectItem value="Transfer">Transfer</SelectItem>
-            <SelectItem value="Withdrawal">Withdrawal</SelectItem>
-            <SelectItem value="Deposit">Deposit</SelectItem>
-            <SelectItem value="Payment">Payment</SelectItem>
-            <SelectItem value="Purchase">Purchase</SelectItem>
+            <SelectItem value="ATM">ATM</SelectItem>
+            <SelectItem value="Mobile">Mobile</SelectItem>
+            <SelectItem value="Web">Web</SelectItem>
+            <SelectItem value="POS">POS</SelectItem>
           </SelectContent>
         </Select>
 
-        <Select value={location} onValueChange={onLocationChange}>
-          <SelectTrigger className="w-[180px]">
-            <SelectValue placeholder="Location" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">All Locations</SelectItem>
-            <SelectItem value="Mumbai">Mumbai</SelectItem>
-            <SelectItem value="Delhi">Delhi</SelectItem>
-            <SelectItem value="Bangalore">Bangalore</SelectItem>
-            <SelectItem value="Chennai">Chennai</SelectItem>
-            <SelectItem value="Kolkata">Kolkata</SelectItem>
-            <SelectItem value="Hyderabad">Hyderabad</SelectItem>
-            <SelectItem value="Pune">Pune</SelectItem>
-          </SelectContent>
-        </Select>
+    
       </div>
     </Card>
   );
